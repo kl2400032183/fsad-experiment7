@@ -1,0 +1,220 @@
+{
+  "info": {
+    "name": "Course Management API",
+    "description": "FSAD Experiment 7 - Course CRUD Operations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Valid Cases",
+      "item": [
+        {
+          "name": "1. Create Course",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Java Programming\",\n  \"duration\": 40,\n  \"fee\": 5000.0\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/courses",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["courses"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "2. Get All Courses",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/courses",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["courses"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "3. Get Course by ID (ID=1)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/courses/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["courses", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "4. Update Course (ID=1)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Advanced Java Programming\",\n  \"duration\": 50,\n  \"fee\": 6000.0\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/courses/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["courses", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "5. Search by Title (Java)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/courses/search/Java",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["courses", "search", "Java"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "6. Delete Course (ID=1)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/courses/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["courses", "1"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Invalid Cases",
+      "item": [
+        {
+          "name": "1. Create Course - Missing Fields",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Python Programming\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/courses",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["courses"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "2. Get Non-existent Course (ID=999)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/courses/999",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["courses", "999"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "3. Update Non-existent Course (ID=999)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"C++ Programming\",\n  \"duration\": 45,\n  \"fee\": 5500.0\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/courses/999",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["courses", "999"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "4. Delete Non-existent Course (ID=999)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/courses/999",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["courses", "999"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "5. Search with No Matches",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/courses/search/NonExistent",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["courses", "search", "NonExistent"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
